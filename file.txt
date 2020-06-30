@@ -1,0 +1,25 @@
+toMap(Function keyMapper, Function valueMapper, BinaryOperator<U> mergeFunction, Supplier mapSupplier)
+This is an overloaded method of toMap() with an additional parameter .i.e Suppliers. We need to pass supplier here. Supplier is the interface of the java.util.Function class. This is a functional interface and can therefore be used as the assignment target for a lambda expression or method reference. If we want to return LinkedHashMap, we need to pass supplier as LinkedHashMap::new. In the example as follows we will be doing the same.
+
+Syntax:
+
+public static <T, K, U, M extends Map> Collector 
+    toMap(Function keyMapper,
+          Function valueMapper,
+          BinaryOperator<U> mergeFunction,
+          Supplier mapSupplier)
+where
+
+T: Type of input elements.
+Map: Output Map.
+interface Collector: A mutable reduction operation that accumulates input elements into a mutable result container, optionally transforming the accumulated result into a final representation after all input elements have been processed. Reduction operations can be performed either sequentially or in parallel.
+toMap(): Static method of Collectors class and return a Collector which collects elements into a Map whose keys and values are the result of applying mapping functions to the input elements. The Collectors class is under the java.util.streams package.
+Parameters: This method accepts following parameters:
+
+keyMapper: a mapping function to produce keys
+valueMapper: a mapping function to produce values
+mergeFunction: a merge function, used to resolve collisions between values associated with the same key, as supplied to Map.merge(Object, Object, BiFunction)
+mapSupplier : a function which returns a new, empty Map into which the results will be inserted
+Return Value: This method returns a Collector which collects elements into a Map whose keys are the result of applying a key mapping function to the input elements, and whose values are the result of applying a value mapping function to all input elements equal to the key and combining them using the merge function
+
+Below example illustrates the above method:
