@@ -11,6 +11,8 @@ public class IOClient extends JFrame {
     private String clientPath = "C:\\Users\\mlev1219\\IdeaProjects\\geekbrains-cloud-storage-june\\client\\src\\main\\resources\\clientPath";
 
     public IOClient() throws HeadlessException, IOException {
+        CommonResource cr = new CommonResource();
+        cr.foo();
         setSize(400, 400);
         setLocation(300, 300);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

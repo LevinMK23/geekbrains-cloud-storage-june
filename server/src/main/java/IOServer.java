@@ -10,6 +10,8 @@ public class IOServer {
     private boolean isRunning;
 
     public IOServer() throws IOException {
+        CommonResource cr = new CommonResource();
+        cr.foo();
         srv = new ServerSocket(8189);
         System.out.println("Server started");
         connections = new ConcurrentLinkedDeque<>();
